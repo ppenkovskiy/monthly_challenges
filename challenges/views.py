@@ -1,18 +1,34 @@
-from django.http import HttpResponse, HttpResponseNotFound
+from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
+
+monthly_challenges = {
+    'january': 'Walk for at least 10 minutes every day!',
+    'february': 'Walk for at least 20 minutes every day!',
+    'march': 'Walk for at least 30 minutes every day!',
+    'april': 'Walk for at least 40 minutes every day!',
+    'may': 'Walk for at least 50 minutes every day!',
+    'june': 'Walk for at least 60 minutes every day!',
+    'july': 'Walk for at least 70 minutes every day!',
+    'august': 'Walk for at least 80 minutes every day!',
+    'september': 'Walk for at least 90 minutes every day!',
+    'october': 'Walk for at least 100 minutes every day!',
+    'november': 'Walk for at least 110 minutes every day!',
+    'december': 'Walk for at least 120 minutes every day!'
+}
 
 
 def monthly_challenge_by_number(request, month):
-    return HttpResponse(month)
+    months = list(monthly_challenges.keys())
+
+    if month > len(months):
+        return HttpResponseNotFound('Invalid month.')
+
+    redirect_month = months[month - 1]
+    return HttpResponseRedirect('/challenges/' + redirect_month)
 
 
 def monthly_challenge(request, month):
-    challenge_text = None
-    if month == 'january':
-        challenge_text = 'Walk for at least 10 minutes every day!'
-    elif month == 'february':
-        challenge_text = 'Walk for at least 20 minutes every day!'
-    elif month == 'march':
-        challenge_text = 'Walk for at least 30 minutes every day!'
-    else:
+    try:
+        challenge_text = monthly_challenges[month]
+        return HttpResponse(challenge_text)
+    except:
         return HttpResponseNotFound('This month is not supported')
-    return HttpResponse(challenge_text)
