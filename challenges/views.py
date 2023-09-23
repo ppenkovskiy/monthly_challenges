@@ -19,9 +19,26 @@ monthly_challenges = {
 months = list(monthly_challenges.keys())
 
 
-def show_all_challenges(request):
-    months_list = '<br>'.join(months)
-    return HttpResponse(f'<h1>{months_list}</h1>')
+# def index(request):
+#     # generate clickable links for each month
+#     month_links = []
+#     for month in months:
+#         challenge_url = reverse(viewname="month-challenge", args=[month])
+#         month_link = f'<a href="{challenge_url}">{month.capitalize()}</a>'
+#         month_links.append(month_link)
+#
+#     # join the links and format as HTML
+#     months_list = '<br>'.join(month_links)
+#     return HttpResponse(f'<h1>{months_list}</h1>')
+
+
+def index(request):
+    list_items = ""
+    for month in months:
+        month_path = reverse(viewname="month-challenge", args=[month])
+        list_items += f"<br><a href='{month_path}'>{month.capitalize()}</a>"
+    list_items = list_items[4:]
+    return HttpResponse(list_items)
 
 
 def monthly_challenge_by_number(request, month):
