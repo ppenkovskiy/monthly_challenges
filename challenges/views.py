@@ -21,25 +21,15 @@ monthly_challenges = {
 months = list(monthly_challenges.keys())
 
 
-# def index(request):
-#     # generate clickable links for each month
-#     month_links = []
-#     for month in months:
-#         challenge_url = reverse(viewname="month-challenge", args=[month])
-#         month_link = f'<a href="{challenge_url}">{month.capitalize()}</a>'
-#         month_links.append(month_link)
-#
-#     # join the links and format as HTML
-#     months_list = '<br>'.join(month_links)
-#     return HttpResponse(f'<h1>{months_list}</h1>')
-
-
 def index(request):
     list_items = ""
-    for month in months:
-        month_path = reverse(viewname="month-challenge", args=[month])
-        list_items += f"<li><a href='{month_path}'>{month.capitalize()}</a></li>"
-    return HttpResponse(f'<ul>{list_items}</ul>')
+    # for month in months:
+    #     month_path = reverse(viewname="month-challenge", args=[month])
+    #     list_items += f"<li><a href='{month_path}'>{month.capitalize()}</a></li>"
+    # return HttpResponse(f'<ul>{list_items}</ul>')
+    return render(request, 'challenges/index.html', {
+        'months': months
+    })
 
 
 def monthly_challenge_by_number(request, month):
