@@ -5,10 +5,11 @@
     <title>All challenges</title>
 </head>
 <body>
-    <ul>            <!--unordered list-->
-        {% for month in months %}
-        <li><a href="">{{ month|title }}</a></li>
-        {% endfor %}
-    </ul>
+<ul>
+    {% for month in months %}
+        <li><a href="{% url 'month-challenge' month %}">{{ month|title }}</a></li>
+    {% endfor %}
+</ul>
 </body>
 </html>
+
