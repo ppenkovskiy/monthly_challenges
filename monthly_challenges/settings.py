@@ -55,7 +55,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             # BASE_DIR / 'challenges' / 'templates'
-            # or registering "challenges" in INSTALLED_APPS list.
+            # or better registering "challenges" in INSTALLED_APPS list.
 
             BASE_DIR / 'templates'
         ],

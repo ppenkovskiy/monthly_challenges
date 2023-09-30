@@ -3,15 +3,16 @@
 
 {% block css_files %}
     <link rel="stylesheet" href="{% static 'challenges/challenges.css' %}">
+    <link rel="stylesheet" href="{% static 'challenges/includes/header.css' %}">
 {% endblock %}
 
 {% block page_title %}
-    All challenges
+    <h1>All challenges</h1>
 {% endblock %}
 
 {% block content %}
     {% include "challenges/includes/header.html" %}
-    <h1>Choose your challenge</h1>
+
     <ul>
         {% for month in months %}
         <li><a href="{% url 'month-challenge' month %}">{{ month|title }}</a></li>

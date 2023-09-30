@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap');
-
+@import urcenterl('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap');
 
 html {
     font-family: 'Roboto', sans-serif;
@@ -7,5 +6,5 @@ html {
 
 body {
     margin: 0;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.8);
 }
