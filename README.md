@@ -1,8 +1,8 @@
-Project "Challenges" preview:
+Project "Monthly Challenges" preview:
 
 ...
 
-Installing "Challenges" project on Linux:
+Installing "Monthly Challenges" project on Linux:
 
 git clone git@github.com:ppenkovskiy/monthly_challenges.git
 
