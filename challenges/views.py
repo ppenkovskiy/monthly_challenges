@@ -1,8 +1,6 @@
-from django.http import Http404, HttpResponse, HttpResponseNotFound, HttpResponseRedirect
+from django.http import Http404, HttpResponseNotFound, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
-from django.template.loader import render_to_string
-
 
 monthly_challenges = {
     'january': 'Walk for at least 10 minutes every day!',
